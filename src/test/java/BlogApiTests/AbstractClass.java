@@ -1,4 +1,4 @@
-import io.restassured.RestAssured;
+package BlogApiTests;import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
@@ -18,7 +18,7 @@ import static io.restassured.RestAssured.basic;
 public class AbstractClass {
     static Properties properties = new Properties();
     private static InputStream configFile;
-    private static String loginUrl;
+    private static String getLoginUrl;
     private static String getPostUrl;
     private static String getX_auth_token;
     protected static ResponseSpecification responseSpecification;
@@ -32,6 +32,7 @@ public class AbstractClass {
 
         getPostUrl = properties.getProperty("getPostUrl");
         getX_auth_token = properties.getProperty("getX_auth_token");
+        getLoginUrl = properties.getProperty("getLoginUrl");
 
         requestSpecification = new RequestSpecBuilder()
                 .setContentType(ContentType.JSON)
@@ -48,7 +49,7 @@ public class AbstractClass {
         RestAssured.requestSpecification = requestSpecification;
     }
 
-    public static String getLoginUrl() {return loginUrl;}
+    public static String getLoginUrl() {return getLoginUrl;}
 
     public static String getGetPostUrl() {
         return getPostUrl;
