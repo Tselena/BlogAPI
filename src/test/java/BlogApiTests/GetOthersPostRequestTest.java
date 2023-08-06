@@ -64,7 +64,7 @@ public class GetOthersPostRequestTest extends AbstractClass {
                 .statusCode(200)
                 .body("authorId", not(hasValue("authorId: 22130")))
                 .extract().body().jsonPath().getJsonObject("data[2].title").toString();
-        Assertions.assertEquals("тестовый пост", responseTitle);
+        Assertions.assertEquals("С‚РµСЃС‚РѕРІС‹Р№ РїРѕСЃС‚", responseTitle);
         Assertions.assertNotEquals("authorId: 22130", Matchers.not("authorId: 22130"));
     }
 
@@ -80,7 +80,7 @@ public class GetOthersPostRequestTest extends AbstractClass {
                 .statusCode(200)
                 .body("authorId", not(hasValue("authorId: 22130")))
                 .extract().body().jsonPath().getJsonObject("data[3].title").toString();
-        Assertions.assertEquals("Гора Арагац", sortedPostTitle);
+        Assertions.assertEquals("Р“РѕСЂР° РђСЂР°РіР°С†", sortedPostTitle);
     }
 
 }
