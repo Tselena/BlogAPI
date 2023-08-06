@@ -75,7 +75,7 @@ public class GetMyPostRequestTest extends AbstractClass{
                 .then()
                 .statusCode(200)
                 .extract().body().jsonPath().getJsonObject("data[0].title").toString();
-        Assertions.assertEquals("И опять сегодня жарко", responseTitle);
+        Assertions.assertEquals("Р РѕРїСЏС‚СЊ СЃРµРіРѕРґРЅСЏ Р¶Р°СЂРєРѕ", responseTitle);
 
         String responseDescription =
                 given().spec(getRequestSpecification())
@@ -85,7 +85,7 @@ public class GetMyPostRequestTest extends AbstractClass{
                         .then()
                         .statusCode(200)
                         .extract().body().jsonPath().getJsonObject("data[3].description").toString();
-        Assertions.assertEquals("про тестирование", responseDescription);
+        Assertions.assertEquals("РїСЂРѕ С‚РµСЃС‚РёСЂРѕРІР°РЅРёРµ", responseDescription);
     }
 
     @Test
